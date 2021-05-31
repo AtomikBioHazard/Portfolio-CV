@@ -1,0 +1,322 @@
+/* ### ### ### ### ### ### CUSTOM PROPERTIES ### ### ### ### ### ### */
+$first-color: #f2bb05
+$first-alpha-color: rgba(242,187,5,0.75)
+$second-color: #14192d
+$second-alpha-color: rgba(20,25,45,0.75)
+$third-color: #4d7c8a
+$third-alpha-color: rgba(77,124,138,.075)
+$white-color: #fff
+$gray-light-color: #f3f3f3
+$gray-color: #ccc
+$gray-dark-color: #666
+$black-color: #000
+$link-color: #509ee3
+$title-color: #333
+$text-color: #222
+$white-alpha-color: rgba(255,255,255,0.5)
+$black-alpha-color: rgba(0,0,0,0.5)
+$max-width: 1200px
+$header-height: 4rem
+$home-image: "../assets/hero-image-home.jpg"
+$customers-image: "../assets/hero-image-customers.jpg"
+
+/* ### ### ### ### ### ### ### ### RESET ### ### ### ### ### ### ### */
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  scroll-behavior: smooth
+  &::after, &::before
+    box-sizing: inherit
+
+body
+  overflow-x: hidden
+  font-family: Arial, Helvetica, sans-serif
+  color: $text-color
+  font-size: 16
+
+a
+  color: $link-color
+  transition: all 0.5s ease-out
+  &:hover
+    opacity: .75
+
+h1,h2,h3,h4,h5,h6
+  margin: 0
+
+h1
+  font-size: 2rem
+h2
+  font-size: 1.5rem
+h3
+  font-size: 1.25rem
+h4
+  font-size: 1rem
+h5
+  font-size: .85rem
+h6
+  font-size: .7rem
+
+img
+  max-width: 100%
+  height: auto
+
+p
+  line-height: 1.6
+
+/* ### ### ### ### ### ### ### COMPONENTS ### ### ### ### ### ### ### */
+
+/**** **** **** **** **** **** CAROUSEL **** **** **** **** **** ***/
+@keyframes carousel-slide
+  0%
+    transform: translateX(0%)
+  25%
+    transform: translateX(-25%)
+  50%
+    transform: translateX(-50%)
+  75%
+    transform: translateX(-75%)
+    
+
+.carousel
+  margin: 2rem auto
+  padding: 2rem 0
+  max-width: 800px
+  text-align: center
+  overflow-x: hidden
+  .slides
+    // 100% for each slide
+    padding-left: 0
+    width: 400%
+    display: flex
+    list-style: none
+    transition: transform .5s ease-in-out
+    animation: carousel-slide 12s ease-in-out 3s
+  input
+    display: none
+  label
+    border: medium solid $gray-dark-color
+    border-radius: 50%
+    margin: 0 .25rem
+    display: inline-block
+    width: .75rem
+    height: .75rem
+    cursor: pointer
+    
+
+#slide-1:checked ~ .slides
+  transform: translateX(0%)
+
+#slide-2:checked ~ .slides
+  transform: translateX(-25%)
+
+#slide-3:checked ~ .slides
+  transform: translateX(-50%)
+
+#slide-4:checked ~ .slides
+  transform: translateX(-75%)
+
+#slide-1:checked ~ .slides-nav label#dot-1,
+#slide-2:checked ~ .slides-nav label#dot-2,
+#slide-3:checked ~ .slides-nav label#dot-3,
+#slide-4:checked ~ .slides-nav label#dot-4
+  background-color: $gray-dark-color
+
+
+/**** **** **** **** **** ** CONTACT FORM ** **** **** **** **** ***/
+.contact-form
+  margin: 2rem auto
+  padding: 1rem
+  max-width: 800px
+  > *
+    padding: .5rem
+    margin: 1rem auto
+    display: block
+    width: 100%
+    &::placeholder
+      color: $gray-dark-color
+  input, textarea
+    font-size: .85rem
+    font-family: Arial, Helvetica, sans-serif
+  input
+    border: 0
+    border-bottom: thin solid $gray-dark-color
+    padding-left: 0
+  input[type="submit"]
+    margin-top: 0
+    cursor: pointer
+    transition: all .5s ease-out
+    &:hover
+      opacity: .75  
+  textarea
+    border: thin solid $gray-dark-color
+    resize: none
+
+.contact-form-response
+  padding: 1rem
+  width: 400px
+  text-align: center
+  background-color: $white-color
+  svg
+    margin-top: 2rem
+    width: 4rem
+    height: 4rem
+    fill: $first-color
+
+.modal#thx
+  &:target
+    opacity: 1
+    pointer-events: auto
+
+/**** **** **** **** **** **** ** HERO ** **** **** **** **** **** ***/
+.hero-image
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  .hero-image-opacity
+    width: 100%
+    min-height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    .hero-image-content
+      .hero-image-title
+        font-size: 7.5vw
+
+
+/**** **** **** **** **** **** ** MENU ** **** **** **** **** **** ***/
+.menu-btn
+  outline: thin solid $first-color
+  border: 0
+  cursor: pointer
+  background-color: $second-color
+  svg
+    fill: $first-color
+.menu
+  position: fixed
+  left: 0
+  bottom: $header-height
+  width: 100%
+  display: flex
+  flex-direction: column
+  background-color: $second-color
+  opacity: 0
+  pointer-events: none
+  transition: opacity 0.5s ease
+  a
+    padding: 1rem
+    font-size: 1.5rem
+    font-weight: bold
+    text-align: center
+    text-decoration: none
+    color: $first-color
+    &:hover
+      color: $white-color
+      background-color: $first-color
+.menu.is-active
+  opacity: 1
+  pointer-events: auto
+
+/**** **** **** **** **** **** * MODAL * **** **** **** **** **** ***/
+.modal
+  position: fixed
+  z-index: 999
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: $black-alpha-color
+  opacity: 0
+  pointer-events: none
+  transition: all 1s
+  .modal-content
+    position: relative
+    .modal-close
+      position: absolute
+      top: 1rem
+      right: 1rem
+      svg
+        width: 3rem
+        height: 3rem
+        fill: $first-color
+
+.modal[ id |= "work" ]:target
+  opacity: 1
+  pointer-events: auto
+
+/**** **** **** **** **** ** Progress Bar ** **** **** **** **** ***/
+progress
+  width: 100%
+  height: 1rem
+  background-color: $gray-color
+  -webkit-progress-bar
+    background-color: $gray-color
+  -webkit-progress-value
+    background-color: $gray-dark-color
+  -moz-progress-bar
+    background-color: $gray-dark-color
+
+
+
+
+/* ### ### ### ### ### ### ### UTILITIES ### ### ### ### ### ### ### */
+.avatar
+  border-radius: 50%
+  width: 150px
+  height: 150px
+
+.bg-gray-light
+  background-color: $gray-light-color
+
+.box-shadow-1
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0,0,0,0.25)
+
+.btn
+  border-radius: .5rem
+  padding: 1rem
+  display: inline-block
+  width: 200px
+  font-weight: bold
+  text-align: center
+  text-decoration: none
+  color: $white-color
+  background-color: $first-color
+
+.container
+  margin-left: auto
+  margin-right: auto
+  max-width: $max-width
+
+.gray-scale
+  filter: grayscale(1)
+
+.none
+  display: none
+
+.section
+  padding: 2rem 1rem
+
+.section-title
+  border-top: thin solid $first-color
+  border-bottom: thin solid $first-color
+  margin: 2rem auto
+  padding: .5rem 1rem
+  width: 250px
+  text-align: center
+  color: $title-color
+
+.text-first-color
+  color: $first-color
+
+.text-center
+  text-align: center
+
+.text-left
+  text-align: left
+
+.text-right
+  text-align: right

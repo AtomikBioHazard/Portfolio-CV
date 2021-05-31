@@ -1,0 +1,118 @@
+/* ### ### ### ### ### ### ### HERO IMAGE ### ### ### ### ### ### ### */
+.home
+  .hero-image
+    .hero-header
+      background-image: url($home-image)
+      background-attachment: fixed
+    .hero-image-opacity
+      background-color: $black-alpha-color
+      .hero-image-content
+        .hero-image-title
+          color: $white-color
+
+.about
+  article
+    margin-bottom: 2rem
+
+.progress
+  margin: 1rem auto
+  > p
+    margin: 0
+    display: flex
+    justify-content: space-between
+    font-size: .85rem
+
+.service-card
+  margin: 1rem auto
+  padding: 1rem
+  text-align: center
+  svg
+    fill: $first-color
+    margin-bottom: 1.25rem
+  h3
+    color: $title-color
+
+.portfolio-card
+  position: relative
+  width: 100%
+  margin: 0 auto
+  display: block
+  &:hover .portfolio-card-info
+    opacity: 1
+    pointer-events: auto
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+  .portfolio-card-info
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    padding: 1rem
+    background-color: $first-alpha-color
+    color: $white-color
+    opacity: 0
+    pointer-events: none
+    transition: all .5s ease-in-out
+    div
+      padding: 1rem
+      border: thin solid $white-color
+      width: 100%
+      height: 100%
+
+.portfolio-modal
+  padding: 1rem
+  max-width: 400px
+  display: flex
+  flex-direction: column
+  background-color: $white-color
+  h3
+    border-bottom: medium solid $first-color
+    padding: .5rem 0
+    margin: 1rem auto
+    color: $title-color
+  .portfolio-details
+    display: grid
+    grid-template-columns: 40% 60%
+    grid-auto-rows: 2rem
+    b
+      color: $first-color
+
+.testimonials
+  .carousel
+    background-color: $white-alpha-color
+  .hero-image
+    .hero-customers
+      background-image: url($customers-image)
+      background-attachment: scroll
+    .hero-image-opacity
+      background-color: $white-alpha-color
+      .hero-image-content
+        .hero-image-title
+          color: $white-color
+
+.contact-card
+  margin: 1rem auto
+  padding: 1rem
+  width: 100%
+  height: 144px
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  svg
+    width: 2rem
+    height: 2rem
+    fill: $first-color
+  > small
+    margin-top: -1rem
+
+.social-media
+  a
+    padding: 0 .4rem
+    text-decoration: none
+  svg
+    width: 1.5rem
+    height: 1.5rem

@@ -1,0 +1,100 @@
+@media screen and ( min-width: 768px )
+  .contact-cards
+    display: grid
+    grid-template-columns: repeat(2, 48%)
+    justify-content: space-between
+
+  .portfolio
+    .container
+      display: grid
+      grid-template-columns: repeat(2, 50%)
+    .section-title
+      grid-column: span 2
+
+  .portfolio-modal
+    flex-direction: row
+    max-width: 800px
+    .portfolio-info
+      margin: 1rem
+      align-self: center
+
+  .services
+    .container
+      display: grid
+      grid-template-columns: repeat(2, 45%)
+      justify-content: space-between
+      align-content: center
+    .section-title
+      grid-column: span 2
+  
+
+
+@media screen and ( min-width: 1024px )
+  .about
+    display: grid
+    grid-template-columns: repeat(3, 30%)
+    justify-content: space-between
+    align-content: center
+
+  .contact-cards
+    grid-template-columns: repeat(4, 24%)
+
+  .contact-form
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    column-gap: 1rem
+    input, textarea
+      font-size: 1rem
+    input[type="submit"]
+      margin-left: 0
+    textarea, .contact-form-loader
+      grid-column: span 2
+
+  .full-lg-screen
+    width: 100%
+    min-height: 100vh
+
+  .footer
+    margin-bottom: 0
+
+  .header
+    position: sticky
+    top: 0
+    padding: .5rem
+    height: calc( $header-height - .5rem )
+    .container
+      .menu-btn
+        display: none
+      .menu
+        position: static
+        width: auto
+        flex-direction: row
+        opacity: 1
+        pointer-events: auto
+        a
+          padding: 0 1rem
+          &:hover
+            background-color: transparent
+          &:last-child
+            padding-right: 0
+
+  .portfolio
+    .container
+      grid-template-columns: repeat(3, 1fr)
+      .section-title
+        grid-column: span 3
+  
+  .services
+    .container
+      grid-template-columns: repeat(3, 30%)
+    .section-title
+      grid-column: span 3
+
+  .text-lg-center
+    text-align: center
+
+  .text-lg-left
+    text-align: left
+    
+  .text-lg-right
+    text-align: right
